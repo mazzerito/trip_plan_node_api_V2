@@ -17,6 +17,16 @@ exports.createActivity = async (req, res) => {
     }
 };
 
+//get specific activity by destination id
+exports.getDestinationActivity = async (req, res) => {
+    try {
+        const activity = await Activity.findAll({ where: { destination_id: req.params.destination_id } });
+        res.json(activity);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
+
 //get all
 exports.getAllActivities = async (req, res) => {
     try {

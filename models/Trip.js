@@ -25,6 +25,9 @@ const Trip = sequelize.define('Trip', {
     trip_budget: {
         type: DataTypes.FLOAT
     },
+    trip_people: {
+        type: DataTypes.STRING
+    },
 
 });
 

@@ -33,11 +33,11 @@ exports.createTrip = async (req, res) => {
 //         res.status(500).json({ error: err.message });
 //     }
 // };
+//get specific trip by user id
 exports.getUserTrip = async (req, res) => {
     try {
-        //select * from posts where userId = req.params.userId
-        const posts = await Trip.findAll({ where: { user_id: req.params.user_id } });
-        res.json(posts);
+        const trip = await Trip.findAll({ where: { user_id: req.params.user_id } });
+        res.json(trip);
     } catch (err) {
         res.status(500).json({ error: err.message });
     }

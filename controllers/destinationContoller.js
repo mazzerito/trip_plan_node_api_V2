@@ -33,6 +33,15 @@ exports.createDestination = async (req, res) => {
 //         res.status(400).json({ error: error.message });
 //     }
 // };
+//get specific destination by trip id
+exports.getTripDestination = async (req, res) => {
+    try {
+        const destinations = await Destination.findAll({ where: { trip_id: req.params.trip_id } });
+        res.json(destinations);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
 
 //get all
 exports.getAllDestinations = async (req, res) => {

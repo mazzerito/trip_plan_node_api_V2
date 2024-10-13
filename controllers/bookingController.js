@@ -36,6 +36,15 @@ exports.createBooking = async (req, res) => {
 //     }
 // };
 
+//get specific booking by trip id
+exports.getTripBooking = async (req, res) => {
+    try {
+        const bookings = await Booking.findAll({ where: { trip_id: req.params.trip_id } });
+        res.json(bookings);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
 
 //get all
 exports.getAllBookings = async (req, res) => {
