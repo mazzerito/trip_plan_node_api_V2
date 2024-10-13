@@ -20,7 +20,7 @@ app.use('/api', destinationRoutes);
 app.use('/api', activityRoutes);
 
 // Database sync and server start
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
