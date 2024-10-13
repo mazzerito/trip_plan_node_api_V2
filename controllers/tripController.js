@@ -18,7 +18,30 @@ exports.createTrip = async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 };
+//get a specific trip user
+// exports.getUserTrips = async (req, res) => {
+//     try {
+//         // Fetch all trips where the user_id matches the req.params.userId
+//         const trips = await Trip.findAll({ where: { user_id: req.params.user_id } });
+        
+//         if (!trips.length) {
+//             return res.status(404).json({ message: 'No trips found for this user' });
+//         }
 
+//         res.status(200).json(trips);
+//     } catch (err) {
+//         res.status(500).json({ error: err.message });
+//     }
+// };
+exports.getUserTrip = async (req, res) => {
+    try {
+        //select * from posts where userId = req.params.userId
+        const posts = await Trip.findAll({ where: { user_id: req.params.user_id } });
+        res.json(posts);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};
 //get all
 exports.getAllTrips = async (req, res) => {
     try {
